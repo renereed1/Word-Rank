@@ -9,8 +9,8 @@ int main(int argc, char** argv)
         return 0;
     }
     
-    WordRank word(argv[1]);
-    std::cout << word.rank() << std::endl;
+    WordRank word;
+    std::cout << word.rank(argv[1]) << std::endl;
     
     return 0;
 }

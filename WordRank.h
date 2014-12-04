@@ -6,19 +6,14 @@
 
 class WordRank {
 public:
-    WordRank(std::string word);
+    WordRank();
     virtual ~WordRank();
     
-    unsigned long long rank();
-    std::string word() const;
+    unsigned long long rank(std::string word);
     
 private:
     unsigned long long factorial(int n);
     unsigned long long possibilities(int wordLength, std::map<char,int> positions);
-    
-private:
-    WordRank();
-    std::string _word;
 };
 
 #endif

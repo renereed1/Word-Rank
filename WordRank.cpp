@@ -2,23 +2,22 @@
 
 #include <iostream>
 
-WordRank::WordRank(std::string word) 
+WordRank::WordRank() 
 {
-    _word = word;
 }
 
 WordRank::~WordRank() 
 {
 }
 
-unsigned long long WordRank::rank()
+unsigned long long WordRank::rank(std::string word)
 {   
-    std::string copyOfWord = _word;
+    std::string copyOfWord = word;
     std::sort(copyOfWord.begin(), copyOfWord.end());
     
     std::map<char, int> positions;
     
-    for (char& c : _word)
+    for (char& c : word)
     {
         if (positions.count(c)) {
             positions.at(c) = positions.at(c) + 1;
@@ -29,9 +28,9 @@ unsigned long long WordRank::rank()
     
     unsigned long long rank = 1;
     
-    for (int i = 0; i < _word.size() - 1; i++)
+    for (int i = 0; i < word.size() - 1; i++)
     {
-        char c = _word.at(i);
+        char c = word.at(i);
         int sortPosition = copyOfWord.find(c);
         int wordLength = copyOfWord.size();
         rank += sortPosition * possibilities(wordLength, positions) / wordLength;
@@ -58,9 +57,4 @@ unsigned long long WordRank::factorial(int n)
         fact *= i;
     }
     return fact;
-}
-
-std::string WordRank::word() const
-{
-    return _word;
 }

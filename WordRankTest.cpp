@@ -13,42 +13,35 @@ public:
     {
         
     }
-    
 };
 
 TEST_F(WordRankTest, calculate_rank_of_ABAB)
 {
-    WordRank word("ABAB");
-    ASSERT_EQ(2, word.rank());
+    WordRank word;
+    ASSERT_EQ(2, word.rank("ABAB"));
 }
 
 TEST_F(WordRankTest, calculate_rank_of_AAAB)
 {
-    WordRank word("AAAB");
-    ASSERT_EQ(1, word.rank());
+    WordRank word;
+    ASSERT_EQ(1, word.rank("AAAB"));
 }
 
 TEST_F(WordRankTest, calculate_rank_of_BAAA)
 {
-    WordRank word("BAAA");
-    ASSERT_EQ(4, word.rank());
+    WordRank word;
+    ASSERT_EQ(4, word.rank("BAAA"));
 }
 
 TEST_F(WordRankTest, calculate_rank_of_QUESTION)
 {
-    WordRank word("QUESTION");
-    ASSERT_EQ(24572, word.rank());
+    WordRank word;
+    ASSERT_EQ(24572, word.rank("QUESTION"));
 }
 
 TEST_F(WordRankTest, calculate_rank_of_BOOKKEEPER)
 {
-    WordRank word("BOOKKEEPER");
-    ASSERT_EQ(10743, word.rank());
-}
-
-TEST_F(WordRankTest, word_is_EPOCRATES)
-{
-    WordRank word("EPOCRATES");
-    ASSERT_EQ("EPOCRATES", word.word());
+    WordRank word;
+    ASSERT_EQ(10743, word.rank("BOOKKEEPER"));
 }
 
